@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+    <TITLE>旋转相册</TITLE>
+    <html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            p {
+                color: #3468ff;
+            }
+
+            * {
+                padding: 0;
+                margin: 0;
+                border: none;
+                outline: none;
+                box-sizing: border-box;
+            }
+
+            *:before, *:after {
+                box-sizing: border-box;
+            }
+
+            html, body {
+                min-height: 100%;
+            }
+
+            body {
+                background: #b3ffde;
+                background-image: radial-gradient(mintcream 0%, lightgray 100%);
+            }
+
+            .Container {
+                margin: 4% auto;
+                width: 210px;
+                height: 140px;
+                position: relative;
+                perspective: 1000px;
+            }
+
+            #carousel {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                transform-style: preserve-3d;
+                animation: rotation 20s infinite linear;
+            }
+
+            #carousel:hover {
+                animation-play-state: paused;
+            }
+
+            #carousel figure {
+                display: block;
+                position: absolute;
+                width: 220px;
+                height: 200px;
+                left: 10px;
+                top: 10px;
+                background: black;
+                overflow: hidden;
+                border: solid 5px black;
+            }
+
+            img {
+                filter: grayscale(0);
+                cursor: pointer;
+                transition: all 0.3s ease 0s;
+                width: 100%;
+                height: 100%;
+            }
+
+            img:hover {
+                filter: grayscale(1);
+                transform: scale(1.2, 1.2);
+            }
+
+            #carousel figure:nth-child(1) {
+                transform: rotateY(0deg) translateZ(288px);
+            }
+
+            #carousel figure:nth-child(2) {
+                transform: rotateY(60deg) translateZ(288px);
+            }
+
+            #carousel figure:nth-child(3) {
+                transform: rotateY(120deg) translateZ(288px);
+            }
+
+            #carousel figure:nth-child(4) {
+                transform: rotateY(180deg) translateZ(288px);
+            }
+
+            #carousel figure:nth-child(5) {
+                transform: rotateY(240deg) translateZ(288px);
+            }
+
+            #carousel figure:nth-child(6) {
+                transform: rotateY(300deg) translateZ(288px);
+            }
+
+            @keyframes rotation {
+                from {
+                    transform: rotateY(0deg);
+                }
+                to {
+                    transform: rotateY(360deg);
+                }
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var story = document.getElementById('word');
+                var s = document.getElementById('show');
+                var i = 0;
+                timer = setInterval(function () {
+                    s.innerHTML = story.innerHTML.substring(0, i);
+                    i++;
+                    if (s.innerHTML == story.innerHTML) {
+                        clearInterval(timer);
+                    }
+                }, 200);
+            }
+        </script>
+    </head>
+<body>
+<p id="word" style="display:none;"><strong>代码帮
+    <br>稻香 - 周杰伦
+    词：周杰伦
+    曲：周杰伦<br>
+    对这个世界如果你有太多的抱怨
+    跌倒了就不敢继续往前走
+    为什么人要这么的脆弱堕落<br>
+    请你打开电视看看
+    多少人为生命在努力勇敢的走下去<br>
+    我们是不是该知足
+    珍惜一切就算没有拥有<br>
+    还记得你说家是唯一的城堡
+    随着稻香河流继续奔跑<br>
+    微微笑 小时候的梦我知道
+    小时候的梦我知道<br>
+    不要哭让萤火虫带着你逃跑
+    乡间的歌谣永远的依靠<br>
+    回家吧 回到最初的美好
+    回到最初的美好<br>
+    不要这么容易就想放弃
+    就像我说的<br>
+    追不到的梦想换个梦不就得了
+    为自己的人生鲜艳上色<br>
+    先把爱涂上喜欢的颜色
+    笑一个吧<br>
+    功成名就不是目的
+    让自己快乐快乐这才叫做意义<br>
+    童年的纸飞机
+    现在终于飞回我手里<br>
+    所谓的那快乐
+    赤脚在田里追蜻蜓追到累了<br>
+    偷摘水果被蜜蜂给叮到怕了
+    谁在偷笑呢<br>
+    我靠着稻草人
+    吹着风 唱着歌 睡着了<br>
+    午后吉它在虫鸣中更清脆
+    阳光洒在路上就不怕心碎<br>
+    珍惜一切 就算没有拥有
+    还记得你说家是唯一的城堡<br>
+    随着稻香河流继续奔跑
+    微微笑 小时候的梦我知道<br>
+    小时候的梦我知道
+    不要哭让萤火虫带着你逃跑<br>
+    乡间的歌谣永远的依靠
+    回家吧 回到最初的美好<br>
+    回到最初的美好
+    还记得你说家是唯一的城堡<br>
+    随着稻香河流继续奔跑
+    微微笑 小时候的梦我知道<br>
+    不要哭让萤火虫带着你逃跑
+    乡间的歌谣永远的依靠<br>
+    回家吧 回到最初的美好
+</p>
+<p id="show"></p>
+<div class="Container">
+    <div id="carousel">
+        <figure><img src="/static/img/1.jpg"></figure>
+        <figure><img src="/static/img/2.jpg"></figure>
+        <figure><img src="/static/img/3.jpg"></figure>
+        <figure><img src="/static/img/4.jpg"></figure>
+        <figure><img src="/static/img/5.jpg"></figure>
+        <figure><img src="/static/img/6.jpg"></figure>
+    </div>
+</div>
+</body>
+</html>
